@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <display-name>subscription-checkout</display-name>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!--
+        Member A's AuthFilter will eventually be registered here to protect
+        /subscription and /upgrade/* . Once it's merged in, add something like:
+
+        <filter>
+            <filter-name>AuthFilter</filter-name>
+            <filter-class>com.billingportal.filter.AuthFilter</filter-class>
+        </filter>
+        <filter-mapping>
+            <filter-name>AuthFilter</filter-name>
+            <url-pattern>/subscription</url-pattern>
+        </filter-mapping>
+        <filter-mapping>
+            <filter-name>AuthFilter</filter-name>
+            <url-pattern>/upgrade/*</url-pattern>
+        </filter-mapping>
+    -->
+
+</web-app>

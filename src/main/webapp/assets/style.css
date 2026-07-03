@@ -1,0 +1,391 @@
+/* ==========================================================================
+   Billing Portal — shared styles
+   Design tokens: cool slate surface, indigo accent, mono figures for
+   anything financial (prices, quotas) so numbers read as data, not prose.
+   ========================================================================== */
+
+:root {
+  --bg: #F3F5F8;
+  --surface: #FFFFFF;
+  --ink: #12151C;
+  --ink-soft: #5C6470;
+  --ink-faint: #8A93A2;
+  --border: #E1E5EC;
+  --border-strong: #C9CFDA;
+
+  --accent: #3A4FE0;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #EDEFFD;
+  --accent-strong: #2938B5;
+
+  --success: #16794F;
+  --success-soft: #E6F5EE;
+  --warn: #B65C13;
+  --warn-soft: #FCEEE1;
+  --danger: #C0362C;
+  --danger-soft: #FBEBEA;
+
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+
+  --font-display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Top bar ---------- */
+
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 32px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.topbar .wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+
+.topbar .wordmark span { color: var(--accent); }
+
+.topbar .context {
+  color: var(--ink-faint);
+  font-size: 13px;
+}
+
+/* ---------- Page shell ---------- */
+
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0 0 6px;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin: 0 0 28px;
+}
+
+/* ---------- Stepper (real 3-step wizard, so numbering is earned) ---------- */
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.stepper .step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-faint);
+  font-size: 13px;
+  font-family: var(--font-mono);
+}
+
+.stepper .step .dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--ink-faint);
+  background: var(--surface);
+}
+
+.stepper .step.done .dot {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.stepper .step.current .dot {
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.stepper .step.current span.label { color: var(--ink); font-weight: 600; }
+
+.stepper .rule {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  margin: 0 2px;
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+}
+
+.card + .card { margin-top: 16px; }
+
+/* ---------- Subscription summary ---------- */
+
+.tier-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--accent-strong);
+  margin: 0 0 14px;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.status-pill::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.status-pill.active { background: var(--success-soft); color: var(--success); }
+.status-pill.other { background: var(--warn-soft); color: var(--warn); }
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.meta-row:first-of-type { border-top: none; padding-top: 18px; }
+
+.meta-row .label { color: var(--ink-soft); }
+.meta-row .value { font-family: var(--font-mono); font-weight: 500; }
+
+.quota-bar-track {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.quota-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 11px 20px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.btn-primary:hover { background: var(--accent-strong); }
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--border-strong);
+}
+.btn-secondary:hover { border-color: var(--ink-faint); }
+
+.btn[disabled] {
+  background: var(--bg);
+  color: var(--ink-faint);
+  border-color: var(--border);
+  cursor: not-allowed;
+}
+
+.btn-row { display: flex; gap: 10px; margin-top: 24px; }
+
+/* ---------- Tier picker (step 1) ---------- */
+
+.tier-grid { display: flex; flex-direction: column; gap: 12px; }
+
+.tier-option {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.tier-option.current {
+  border-left-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.tier-option .name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.tier-option .tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin-left: 8px;
+}
+
+.tier-option .specs {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+.tier-option .price {
+  font-family: var(--font-mono);
+  font-size: 17px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tier-option .price .period {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--ink-faint);
+}
+
+/* ---------- Review table (step 2) ---------- */
+
+.review-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 13px 0;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.review-row:first-child { border-top: none; }
+
+.review-row .label { color: var(--ink-soft); }
+
+.review-row .value {
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.review-row.diff .value.up { color: var(--warn); }
+.review-row.diff .value.down { color: var(--success); }
+
+.hint {
+  font-size: 13px;
+  color: var(--ink-faint);
+  margin-top: 18px;
+}
+
+/* ---------- Messages ---------- */
+
+.error-banner {
+  background: var(--danger-soft);
+  color: var(--danger);
+  border: 1px solid rgba(192, 54, 44, 0.25);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.success-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--success-soft);
+  color: var(--success);
+  border: 1px solid rgba(22, 121, 79, 0.2);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 480px) {
+  .page { padding: 32px 16px 64px; }
+  .tier-option { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
