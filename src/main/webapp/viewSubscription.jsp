@@ -16,6 +16,17 @@
         <div class="wordmark">Acme<span>.</span>Billing</div>
         <div class="context">Account &amp; Billing</div>
     </div>
+    
+    <div style="text-align:right; margin-bottom:15px;">
+    <a href="logout"
+       style="text-decoration:none;
+              background:#dc3545;
+              color:white;
+              padding:8px 15px;
+              border-radius:5px;">
+        Logout
+    </a>
+</div>
 
     <div class="page">
         <p class="eyebrow">Subscription</p>
