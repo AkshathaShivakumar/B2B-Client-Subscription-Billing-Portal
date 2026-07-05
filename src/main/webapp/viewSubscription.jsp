@@ -33,7 +33,7 @@
             <!-- Mock data passing the details shown in your active plan dashboard layout -->
             <input type="hidden" name="subscriptionId" value="101" />
             <input type="hidden" name="amount" value="29.00" />
-            <input type="hidden" name="billingPeriod" value="Current Period Ending Aug 2026" />
+            <input type="hidden" name="billingPeriod" value="Aug 2026" />
 
             <button type="submit" style="padding: 8px 16px; background-color: #0056b3; color: white; border: none; border-radius: 4px; font-weight: bold; font-size: 13px; cursor: pointer; transition: background 0.2s;">
                 ⚡ Generate Invoice
