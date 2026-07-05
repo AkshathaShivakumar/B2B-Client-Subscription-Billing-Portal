@@ -16,9 +16,9 @@ public class DBUtil {
 
     // Adjust these three if your local MySQL setup differs.
     private static final String URL =
-            "jdbc:mysql://localhost:3306/billing_portal?useSSL=false&serverTimezone=UTC";
+            "jdbc:mysql://localhost:3306/billing_portal?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
     private static final String USER = "root";
-    private static final String PASSWORD = "your_local_mysql_password";
+    private static final String PASSWORD = "user_golu055";
 
     static {
         try {
